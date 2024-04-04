@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <header>
-        <h1>Memory Card</h1>
+        <p className="game-title">Pokemon Memory Card Game</p>
     </header>
   )
 }

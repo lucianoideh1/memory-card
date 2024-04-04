@@ -1,0 +1,13 @@
+main {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(104, 104, 104);
+    width: fit-content;
+    padding: 1rem;
+}
+ul li {
+    list-style: none;
+}
