@@ -6,6 +6,10 @@ const Main = () => {
     const [pokemons, setPokemons] = useState([])
     // const url = "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20"
     
+    function handleClick(){
+        setIsGame(true)
+    }
+
     useEffect(() => {
         fetch("https://pokeapi.co/api/v2/pokemon/bulbasaur").then((result) => {
             return result.json()
@@ -18,7 +22,7 @@ const Main = () => {
 
   return (
    <main>
-    {isGame? "Game is on": <Welcome></Welcome>}
+    {isGame? "Game is on": <Welcome onClick={handleClick}></Welcome>}
    </main>
   )
 }
