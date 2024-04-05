@@ -8,17 +8,25 @@ const Main = () => {
     
     function handleClick(){
         setIsGame(true)
+        getPokemons()
     }
 
-    useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon/bulbasaur").then((result) => {
-            return result.json()
-        })
-        .then((data) => {
-            setPokemons(data)
-            console.log(data)
-        })
-    },[])
+    function getRandomNum(){
+        const max = 700
+        return Math.floor(Math.random()*max)
+    }
+
+   async function getPokemons(){
+    const randomNum =  getRandomNum()
+    fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
+    .then(res => res.json())
+    .then((data) => {
+        console.log(data)
+        setPokemons(data)
+        return (<div><img src={data.sprites.front_default}></img></div>)
+    })
+   }
+
 
   return (
    <main>

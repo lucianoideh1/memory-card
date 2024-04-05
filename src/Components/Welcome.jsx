@@ -1,4 +1,5 @@
-const Welcome = ({onClick}) => {
+// eslint-disable-next-line react/prop-types
+const Welcome = ( { onClick }) => {
   return (
     <div>
         <p>Welcome to pokemon memory card game</p>
