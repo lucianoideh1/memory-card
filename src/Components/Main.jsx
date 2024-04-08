@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import "../styles/main.css"
 import Welcome from "./Welcome"
 import Card from "./Card"
@@ -19,19 +19,22 @@ const Main = () => {
 
    async function getPokemon(){
     const randomNum =  getRandomNum()
-
-    //doing the fetch without await and also disconected from the app(which means without useEffect)
-     fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
-    .then(res => res.json())
-    .then((data) => {
-        console.log(data)
-        setPokemon(data)
-    })
+     const result = fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
+     const data = result.json()
+     setPokemon(data)
    }
 
-//    useEffect(()=>{
-//     getPokemon()
-//    },[getPokemon])
+   useEffect(() => {
+    const getPokemons = async () => {
+        const randomNum =  getRandomNum()
+        const result = fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
+        const data = result.json()
+        setPokemon(data)
+    }
+
+    getPokemons()
+   },[])
+
 
   return (
    <main>
