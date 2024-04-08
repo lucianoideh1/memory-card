@@ -18,18 +18,21 @@ const Main = () => {
     }
 
    async function getPokemon(){
-    const randomNum =  getRandomNum()
-     const result = fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
-     const data = result.json()
+    // const randomNum =  getRandomNum()
+     const result = await fetch(`https://pokeapi.co/api/v2/pokemon/torkoal`)
+     const data = await result.json()
      setPokemon(data)
+     console.log(data)
+
    }
 
    useEffect(() => {
     const getPokemons = async () => {
-        const randomNum =  getRandomNum()
-        const result = fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
-        const data = result.json()
+        // const randomNum =  getRandomNum()
+        const result = await fetch(`https://pokeapi.co/api/v2/pokemon/torkoal`)
+        const data = await  result.json()
         setPokemon(data)
+        console.log(data)
     }
 
     getPokemons()
@@ -38,7 +41,7 @@ const Main = () => {
 
   return (
    <main>
-    {isGame? <Card pokemon={pokemon}></Card>: <Welcome onClick={handleClick}></Welcome>}
+    {isGame? <Card pokemon={pokemon}></Card>: <Welcome handleOnClick={handleClick}></Welcome>}
    </main>
   )
 }

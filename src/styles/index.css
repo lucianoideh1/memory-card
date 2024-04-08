@@ -24,3 +24,12 @@
   font-size: 3.2em;
   line-height: 1.1;
 } */
+
+.card{
+  display: flex;
+  flex-direction: column;
+}
+.specie{
+  font-weight: 700;
+  font-size: 1.2rem;
+}

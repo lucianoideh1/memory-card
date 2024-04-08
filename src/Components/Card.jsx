@@ -1,8 +1,8 @@
-const Card = (pokemon) => {
+const Card = ({ pokemon}) => {
   return (
-    <div>
-        <img src={pokemon.pokemon.sprites.front_default} alt="pokemon sprite" />
-        {pokemon.pokemon.name}
+    <div className="card">
+        <img src={pokemon.sprites.front_default} alt="pokemon sprite" />
+       <p className="specie">{pokemon.name}</p>
     </div>
   )
 }
