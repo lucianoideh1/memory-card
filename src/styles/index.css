@@ -19,6 +19,8 @@
 .game-title{
   font-size: 2.2rem;
   font-weight: 700;
+  max-width: 17ch;
+  text-align: center;
 }
 /* h1 {
   font-size: 3.2em;
@@ -49,4 +51,22 @@
   display: grid;
   grid-template-columns: repeat(4,1fr);
   gap: 1rem;
+}
+
+.rules {
+  font-weight: 700;
+}
+
+.start-game{
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: .3rem 1.2rem;
+  background-color: rgb(247, 247, 247);
+}
+
+.start-game:hover{
+  outline: none;
+  background-color: rgb(225, 225, 225);
 }

@@ -3,10 +3,10 @@ const Welcome = ({handleOnClick}) => {
     <div>
         <p>Welcome to pokemon memory card game</p>
         <p>Rules:</p>
-        <ul>
-            <li>Don&apos;t click on the same pokemon two times until the game ends</li>
+        <ul className="rules">
+            <li>Don&apos;t click twice on the same pokemon </li>
         </ul>        
-        <button onClick={handleOnClick}>Start Game</button>
+        <button className="start-game" onClick={handleOnClick}>Start Game</button>
     </div>
   )
 }
