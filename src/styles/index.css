@@ -28,12 +28,23 @@
 .card{
   display: flex;
   flex-direction: column;
+  background-color: rgb(192, 192, 192);
 }
 .specie{
   font-weight: 700;
   font-size: 1.2rem;
-}
+  padding: 1rem;
 
+}
+.card img {
+  background-color: rgb(245, 245, 245);
+  margin: .3rem;
+
+}
+.card p{
+  margin: .3rem;
+  background-color: rgb(58, 58, 58);
+}
 .card-colection{
   display: grid;
   grid-template-columns: repeat(4,1fr);
