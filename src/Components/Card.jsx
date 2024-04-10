@@ -16,26 +16,28 @@ const Card = () => {
       const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
       const data = await  result.json()
       setPokemon(data)
+      setLoading(false)
       console.log(data)
   }
 
   getPokemons()
  },[])
-
+ 
  useEffect(() => {
-  if(pokemon !== []){
-    setLoading(false)
-    return pokemonElement
-  }
- },[pokemon])
+   if(pokemon.length !== 0){
+     setLoading(false)
+    }
+  },[pokemon.length])
+  
 
- const pokemonElement = `<img src={pokemon.sprites.front_default} alt="pokemon sprite" />
- <p className="specie">{pokemon.name}</p>`
 
   return (
     <div className="card">
         
-       {loading? "Loading" : pokemonElement}
+       {loading? "Loading" :  <div>
+    <img src={pokemon.sprites.front_default} alt="pokemon sprite" />
+    <p className="specie">{pokemon.name}</p>
+  </div>}
     </div>
   )
 }
