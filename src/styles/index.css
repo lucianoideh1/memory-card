@@ -20,7 +20,14 @@
   font-weight: 700;
   max-width: 17ch;
   text-align: center;
+  color: white;
+  text-decoration: none;
+  transition: all .250s ease-in-out;
 }
+.game-title:hover,.game-title:active{
+  color: rgb(131, 238, 255);
+}
+
 /* h1 {
   font-size: 3.2em;
   line-height: 1.1;
