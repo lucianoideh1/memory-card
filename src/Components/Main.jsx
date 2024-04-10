@@ -10,7 +10,6 @@ const Main = () => {
         setIsGame(true)
     }
 
-
   return (
    <main>
     {isGame? <CardColection></CardColection> : <Welcome handleOnClick={handleClick}></Welcome>}
