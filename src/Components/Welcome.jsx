@@ -6,7 +6,7 @@ const Welcome = ({handleOnClick}) => {
         <ul className="rules">
             <li>Don&apos;t click twice on the same pokemon </li>
         </ul>        
-        <button className="start-game" onClick={handleOnClick}>Start Game</button>
+        <button className="start-game " onClick={handleOnClick}>Start Game</button>
     </div>
   )
 }
