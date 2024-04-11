@@ -6,6 +6,7 @@ import Scoreboard from './Scoreboard'
 
 const Main = () => {
     const [isGame,setIsGame] = useState(false)
+    const [score, setScore] = useState({current:0, best:8})
 
     function handleClick(){
         setIsGame(true)
@@ -15,8 +16,8 @@ const Main = () => {
    <main>
     {isGame? 
     <div>
-      <CardColection></CardColection> 
-      <Scoreboard></Scoreboard>
+      <CardColection ></CardColection> 
+      <Scoreboard score={score}></Scoreboard>
       </div> : <Welcome handleOnClick={handleClick}></Welcome>}
     
    </main>
