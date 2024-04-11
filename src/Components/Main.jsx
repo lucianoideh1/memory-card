@@ -1,4 +1,4 @@
-import { useState} from "react"
+import { useState, useEffect } from "react"
 import "../styles/main.css"
 import Welcome from "./Welcome"
 import CardColection from "./CardColection"
@@ -8,17 +8,33 @@ const Main = () => {
     const [isGame,setIsGame] = useState(false)
     const [score, setScore] = useState({current:0, best:8})
 
-    function handleClick(){
+    function handleGameStart(){
         setIsGame(true)
     }
 
-  return (
+    function handleCardClick(){
+      console.log("clicked a card")
+    setScore({...score,current:score.current + 1})
+    }
+
+    useEffect(() => {
+
+      function isBest(){
+        if(score.current > score.best){
+          setScore({...score,best : score.current})
+        }
+      }
+    
+    isBest()
+    },[score])
+ 
+    return (
    <main>
     {isGame? 
     <div>
-      <CardColection ></CardColection> 
-      <Scoreboard score={score}></Scoreboard>
-      </div> : <Welcome handleOnClick={handleClick}></Welcome>}
+      <CardColection onClick={handleCardClick}></CardColection> 
+      <Scoreboard score={score} ></Scoreboard>
+      </div> : <Welcome onClick={handleGameStart}></Welcome>}
     
    </main>
   )

@@ -7,16 +7,7 @@ const Scoreboard = ({score}) => {
   //   setScore({...score,current:score.current + 1})
   // }
  
-  // useEffect(() => {
 
-  //   function isBest(){
-  //     if(score.current > score.best){
-  //       setScore({...score,best : score.current})
-  //     }
-  //   }
-  
-  // isBest()
-  // },[score])
   return (
     <div className="scoreboard" 
     // onClick={handleClick}

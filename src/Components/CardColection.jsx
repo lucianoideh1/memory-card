@@ -1,16 +1,16 @@
 import Card from "./Card"
 
-const CardColection = () => {
+const CardColection = ({onClick}) => {
   return (
     <div className="card-colection">
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
+      <Card onClick={onClick}></Card>
+      <Card onClick={onClick}></Card>
+      <Card onClick={onClick}></Card>
+      <Card onClick={onClick}></Card>
+      <Card onClick={onClick}></Card>
+      <Card onClick={onClick}></Card>
+      <Card onClick={onClick}></Card>
+      <Card onClick={onClick}></Card>
     </div>
   )
 }

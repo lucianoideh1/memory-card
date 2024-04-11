@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-const Card = () => {
+const Card = ({onClick}) => {
   
   const [pokemon, setPokemon] = useState([])   
   const [loading, setLoading] = useState(true)
@@ -32,7 +32,7 @@ const Card = () => {
 
 
   return (
-    <div className="card">
+    <div className="card" onClick={onClick}>
         
        {loading? "Loading" :  <div>
     <img src={pokemon.sprites.front_default} alt="pokemon sprite" />
