@@ -1,14 +1,9 @@
-const Card = ({ onClick,loading ,pokemon}) => {
+const Card = ({ onClick,pokemon}) => {
   
-
-
   return (
-    <div className="card" onClick={onClick}>
-        
-       {loading? "Loading" :  <div>
+    <div className="card" onClick={onClick}> 
     <img src={pokemon.sprites.front_default} alt="pokemon sprite" />
     <p className="specie">{pokemon.name}</p>
-  </div>}
     </div>
   )
 }
