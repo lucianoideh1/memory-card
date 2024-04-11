@@ -13,8 +13,9 @@ const Main = () => {
     }
 
     function handleCardClick(){
-      console.log("clicked a card")
-    setScore({...score,current:score.current + 1})
+     console.log("clicked a card")
+     setScore({...score,current:score.current + 1})
+    // shuffleArray(pokemon)
     }
 
     useEffect(() => {
@@ -28,6 +29,14 @@ const Main = () => {
     isBest()
     },[score])
  
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+      }
+  }
+
     return (
    <main>
     {isGame? 
