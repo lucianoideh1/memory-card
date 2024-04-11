@@ -7,7 +7,7 @@ import Scoreboard from './Scoreboard'
 const Main = () => {
     const [isGame,setIsGame] = useState(false)
     const [score, setScore] = useState({current:0, best:8})
-
+    const poolSize = 8
     function handleGameStart(){
         setIsGame(true)
     }
@@ -30,18 +30,11 @@ const Main = () => {
     },[score])
  
 
-    function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-      }
-  }
-
     return (
    <main>
     {isGame? 
     <div>
-      <CardColection onClick={handleCardClick}></CardColection> 
+      <CardColection onClick={handleCardClick} poolSize={poolSize}></CardColection> 
       <Scoreboard score={score} ></Scoreboard>
       </div> : <Welcome onClick={handleGameStart}></Welcome>}
     
