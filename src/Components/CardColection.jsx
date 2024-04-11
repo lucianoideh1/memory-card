@@ -10,17 +10,47 @@ const CardColection = ({ onClick }) => {
     }
 }
 const [pokemons,setPokemons] = useState([])
+const [loading, setLoading] = useState(true)
+
+
+
+async function getRandomNum(){
+  const max = 700
+  return Math.floor(Math.random()*max)
+}
+
+useEffect(() => {
+
+const getPokemons = async () => {
+  const randomNum =  await getRandomNum()
+  const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
+  const data = await  result.json()
+  setPokemon(data)
+  setLoading(false)
+  console.log(data)
+}
+
+getPokemons()
+},[])
+
+useEffect(() => {
+if(pokemons.length !== 0){
+ setLoading(false)
+}
+},[pokemons.length])
+
+
 
   return (
     <div className="card-colection">
-      <Card onClick={onClick}></Card>
-      <Card onClick={onClick}></Card>
-      <Card onClick={onClick}></Card>
-      <Card onClick={onClick}></Card>
-      <Card onClick={onClick}></Card>
-      <Card onClick={onClick}></Card>
-      <Card onClick={onClick}></Card>
-      <Card onClick={onClick}></Card>
+      <Card onClick={onClick} loading={loading}></Card>
+      <Card onClick={onClick} loading={loading}></Card>
+      <Card onClick={onClick} loading={loading}></Card>
+      <Card onClick={onClick} loading={loading}></Card>
+      <Card onClick={onClick} loading={loading}></Card>
+      <Card onClick={onClick} loading={loading}></Card>
+      <Card onClick={onClick} loading={loading}></Card>
+      <Card onClick={onClick} loading={loading}></Card>
     </div>
   )
 }
