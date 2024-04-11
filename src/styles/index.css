@@ -5,6 +5,7 @@
 
   color: rgba(255, 255, 255, 0.87);
   background-color: rgb(57, 57, 57);
+  background-color: rgb(40, 40, 40);
 
 }
 
@@ -47,6 +48,7 @@
 .card img {
   background-color: rgb(245, 245, 245);
   margin: .3rem;
+  -webkit-user-drag: none
 
 }
 .card p{
