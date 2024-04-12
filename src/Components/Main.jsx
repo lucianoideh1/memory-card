@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react"
 import "../styles/main.css"
 import Welcome from "./Welcome"
-import CardColection from "./CardColection"
+import CardCollection from "./CardCollection"
 import Scoreboard from './Scoreboard'
 
 const Main = () => {
   // game settings or properties
-    const [isGame,setIsGame] = useState(false)
+    const [page,setPage] = useState("Welcome")
     const [score, setScore] = useState({current:0, best:8})
     const poolSize = 8
     function handleGameStart(){
-        setIsGame(true)
+        setPage("Game")
     }
 
     function handleCardClick(){
@@ -50,7 +50,7 @@ async function getRandomNum(){
 useEffect(() => {
 
   const checkGameStart = () => {
-    if(isGame === true){
+    if(page === "Game"){
         const getPokemons = async () => {
           console.log("fetching pokemons")
           const randomNum =  await getRandomNum()
@@ -68,7 +68,7 @@ useEffect(() => {
       }
     }
     checkGameStart()
-},[isGame])
+},[page])
 
 useEffect(() => {
 if(pokemons.length !== 0){
@@ -76,7 +76,7 @@ if(pokemons.length !== 0){
 }
 },[pokemons.length])
 
-  if(!isGame){
+  if(page === "Welcome"){
     return (
       <main>
         <Welcome onClick={handleGameStart}></Welcome>
@@ -84,12 +84,12 @@ if(pokemons.length !== 0){
     )
   }
 
- else if(isGame){
+ else if(page === "Game" && loading === false){
   return(
-    <div>
-      <CardColection  onClick={handleCardClick}  pokemon={pokemons}></CardColection> 
+    <main>
+      <CardCollection  onClick={handleCardClick}  pokemon={pokemons}></CardCollection> 
       <Scoreboard score={score} ></Scoreboard>
-    </div>
+    </main>
   )
  }
 

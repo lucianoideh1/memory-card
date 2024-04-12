@@ -10,6 +10,7 @@ import Card from "./Card"
       }
       else if(props.pokemon.length > 0){
         return(
+          
           props.pokemon.map( poke => {
             <Card pokemons={poke} onClick={props.onClick}></Card>
           })
