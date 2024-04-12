@@ -46,19 +46,29 @@ async function getRandomNum(){
   return Math.floor(Math.random()*max)
 }
 
+
 useEffect(() => {
 
-const getPokemons = async () => {
-  const randomNum =  await getRandomNum()
-  const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
-  const data = await  result.json()
-  setPokemons(data)
-  setLoading(false)
-  console.log(data)
-}
-
-getPokemons()
-},[])
+  const checkGameStart = () => {
+    if(isGame === true){
+        const getPokemons = async () => {
+          console.log("fetching pokemons")
+          const randomNum =  await getRandomNum()
+          const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
+          const data = await  result.json()
+          setPokemons(data)
+          setLoading(false)
+          console.log(data)
+          console.log("game start, pokemons fetched")
+        }
+        getPokemons()
+      }
+      else {
+        console.log("game hasnt started")
+      }
+    }
+    checkGameStart()
+},[isGame])
 
 useEffect(() => {
 if(pokemons.length !== 0){
@@ -77,9 +87,8 @@ if(pokemons.length !== 0){
  else if(isGame){
   return(
     <div>
-      <CardColection onClick={handleCardClick} loading={loading} pokemon={pokemons}></CardColection> 
+      <CardColection  onClick={handleCardClick}  pokemon={pokemons}></CardColection> 
       <Scoreboard score={score} ></Scoreboard>
-    
     </div>
   )
  }
