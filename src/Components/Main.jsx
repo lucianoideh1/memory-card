@@ -66,16 +66,25 @@ if(pokemons.length !== 0){
 }
 },[pokemons.length])
 
+  if(!isGame){
     return (
-   <main>
-    {isGame ?
+      <main>
+        <Welcome onClick={handleGameStart}></Welcome>
+      </main>
+    )
+  }
+
+ else if(isGame){
+  return(
     <div>
       <CardColection onClick={handleCardClick} loading={loading} pokemon={pokemons}></CardColection> 
       <Scoreboard score={score} ></Scoreboard>
-      </div> : <Welcome onClick={handleGameStart}></Welcome>}
     
-   </main>
+    </div>
   )
+ }
+
+
 }
 
 export default Main
