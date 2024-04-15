@@ -26,7 +26,14 @@ import Card from "./Card"
 
        return(
         <div>
-          {loading ? <div>Card collection is loading</div> : <div>Card collection is ready</div> }
+          {loading ? 
+          <div>Card collection is loading</div> 
+          : 
+          // <div>Card collection is ready</div> 
+         
+            <Card onClick={onClick} pokemon={pokemons}></Card>
+          
+          }
         </div>
        )
        
