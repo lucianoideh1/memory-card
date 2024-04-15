@@ -4,6 +4,7 @@ import Card from "./Card"
   const CardCollection = ({onClick,pokemons,setPokemons} ) => {
   
     const [loading, setLoading] = useState(true)
+    const poolSize = 8
 
     async function getRandomNum(){
       const max = 700
@@ -33,7 +34,6 @@ import Card from "./Card"
           }
         </div>
        )
-
   }
   export default CardCollection
 

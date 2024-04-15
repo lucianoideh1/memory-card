@@ -8,7 +8,6 @@ const Main = () => {
   // game settings or properties
     const [page,setPage] = useState("Welcome")
     const [score, setScore] = useState({current:0, best:8})
-    const poolSize = 8
     function handleGameStart(){
         setPage("Game")
     }
