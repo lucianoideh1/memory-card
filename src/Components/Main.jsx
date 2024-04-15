@@ -20,13 +20,11 @@ const Main = () => {
     }
 // check best score 
     useEffect(() => {
-
       function isBest(){
         if(score.current > score.best){
           setScore({...score,best : score.current})
         }
       }
-    
     isBest()
     },[score])
 // functions
@@ -37,45 +35,7 @@ const Main = () => {
       }
   }
 //pokemon getter and setter 
-
 const [pokemons,setPokemons] = useState([])
-const [loading, setLoading] = useState(true)
-
-async function getRandomNum(){
-  const max = 700
-  return Math.floor(Math.random()*max)
-}
-
-
-useEffect(() => {
-
-  const checkGameStart = () => {
-    if(page === "Game"){
-        const getPokemons = async () => {
-          console.log("fetching pokemons")
-          const randomNum =  await getRandomNum()
-          const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
-          const data = await  result.json()
-          setPokemons(data)
-          setLoading(false)
-          console.log(data)
-          console.log("game start, pokemons fetched")
-        }
-        getPokemons()
-      }
-      else {
-        console.log("game hasnt started")
-      }
-    }
-    checkGameStart()
-},[page])
-
-useEffect(() => {
-if(pokemons.length !== 0){
- setLoading(false)
-}
-},[pokemons.length])
-
   if(page === "Welcome"){
     return (
       <main>
@@ -83,17 +43,16 @@ if(pokemons.length !== 0){
       </main>
     )
   }
-
- else if(page === "Game" && loading === false){
+ else if(page === "Game" ){
   return(
     <main>
-      <CardCollection  onClick={handleCardClick}  pokemon={pokemons}></CardCollection> 
+      <CardCollection  onClick={handleCardClick}  
+                       pokemons={pokemons}
+                       setPokemons={setPokemons} 
+                       setPage={setPage}></CardCollection> 
       <Scoreboard score={score} ></Scoreboard>
     </main>
   )
  }
-
-
 }
-
 export default Main
