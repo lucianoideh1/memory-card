@@ -13,8 +13,8 @@ import Card from "./Card"
     useEffect(() => {
         const getPokemons = async () => {
           console.log("fetching pokemons")
-          // const randomNum =  await getRandomNum()
-          const result = await fetch(`https://pokeapi.co/api/v2/pokemon/froakie`)
+          const randomNum =  await getRandomNum()
+          const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
           const data = await  result.json()
           setPokemons(data)
           setLoading(false)
@@ -28,15 +28,11 @@ import Card from "./Card"
         <div>
           {loading ? 
           <div>Card collection is loading</div> 
-          : 
-          // <div>Card collection is ready</div> 
-         
+          :   
             <Card onClick={onClick} pokemon={pokemons}></Card>
-          
           }
         </div>
        )
-       
 
   }
   export default CardCollection
