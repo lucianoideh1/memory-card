@@ -14,3 +14,24 @@ pokemonArr.push(getPokemon())
 }
 
 console.log(pokemonArr)
+return pokemonArr
+
+# test for module
+
+function getPokemonPool(){
+    const poolSize = 8
+const pokemonArr = []
+
+async function getPokemon(){
+    const result = await fetch(url${Math.floor(Math.random(*700))})
+    const data = await result.json()
+    return data
+}
+
+for(let i = 0; i < poolSise;i++){
+pokemonArr.push(getPokemon())
+}
+
+console.log(pokemonArr)
+return pokemonArr
+}
