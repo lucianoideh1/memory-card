@@ -1,15 +1,9 @@
 import {useState, useEffect} from 'react'
 import Card from "./Card"
-import getPokemonPool from '../utils/getPokemonPool'
 
   const CardCollection = ({onClick,pokemons,setPokemons} ) => {
   
     const [loading, setLoading] = useState(true)
-
-    async function getRandomNum(){
-      const max = 700
-      return Math.floor(Math.random()*max)
-    }
     
     useEffect(() => {
         // const getPokemons = async () => {
@@ -23,8 +17,7 @@ import getPokemonPool from '../utils/getPokemonPool'
         //   console.log("game start, pokemons fetched")
         // }
         // getPokemons()
-        setPokemons(getPokemonPool("https://pokeapi.co/api/v2/pokemon/"))
-        setLoading(false)
+        
       },[setPokemons])
 
        return(
