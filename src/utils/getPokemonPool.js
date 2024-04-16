@@ -1,5 +1,5 @@
 export default function getPokemonPool(url){
-    const poolSize = 8
+const poolSize = 4
 const pokemonArr = []
 
 async function getPokemon(){

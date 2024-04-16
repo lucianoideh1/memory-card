@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import Card from "./Card"
+import getPokemonPool from '../utils/getPokemonPool'
 
   const CardCollection = ({onClick,pokemons,setPokemons} ) => {
   
@@ -11,17 +12,19 @@ import Card from "./Card"
     }
     
     useEffect(() => {
-        const getPokemons = async () => {
-          console.log("fetching pokemons")
-          const randomNum =  await getRandomNum()
-          const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
-          const data = await  result.json()
-          setPokemons(data)
-          setLoading(false)
-          console.log(data)
-          console.log("game start, pokemons fetched")
-        }
-        getPokemons()
+        // const getPokemons = async () => {
+        //   console.log("fetching pokemons")
+        //   const randomNum =  await getRandomNum()
+        //   const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
+        //   const data = await  result.json()
+        //   setPokemons(data)
+        //   setLoading(false)
+        //   console.log(data)
+        //   console.log("game start, pokemons fetched")
+        // }
+        // getPokemons()
+        setPokemons(getPokemonPool("https://pokeapi.co/api/v2/pokemon/"))
+        setLoading(false)
       },[setPokemons])
 
        return(
