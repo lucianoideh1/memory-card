@@ -12,11 +12,7 @@ const Main = () => {
         setPage("Game")
     }
 
-    function handleCardClick(){
-     console.log("clicked a card")
-     setScore({...score,current:score.current + 1})
-    // shuffleArray(pokemon)
-    }
+    
 // check best score 
     useEffect(() => {
       function isBest(){
@@ -26,13 +22,9 @@ const Main = () => {
       }
     isBest()
     },[score])
-// functions
-    function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-      }
-  }
+
+
+
 //pokemon getter and setter 
 const [pokemons,setPokemons] = useState([])
   if(page === "Welcome"){
@@ -45,7 +37,9 @@ const [pokemons,setPokemons] = useState([])
  else if(page === "Game" ){
   return(
     <main>
-      <CardCollection  onClick={handleCardClick}  
+      <CardCollection  
+                      score={score}
+                      setScore={setScore}
                        pokemons={pokemons}
                        setPokemons={setPokemons} 
                        setPage={setPage}></CardCollection> 

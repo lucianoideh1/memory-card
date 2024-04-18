@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import Card from "./Card"
 
-  const CardCollection = ({onClick, pokemons, setPokemons} ) => {
+  const CardCollection = ({onClick, pokemons, setPokemons,score,setScore} ) => {
   
     const [loading, setLoading] = useState(true)
 
@@ -30,10 +30,24 @@ import Card from "./Card"
       getPokemonPool()
 
     },[setPokemons])
+    function handleCardClick(){
+      console.log("clicked a card")
+      setScore({...score,current:score.current + 1})
+      // changing order in collection
+      shuffleArray(pokemons)
+     }
+
+// functions
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
 
     const pokemonJSX =  pokemons.map( poke => {
-      return(<Card  key={poke.name} onClick={onClick} pokemon={poke}></Card>)
+      return(<Card  key={poke.name} onClick={handleCardClick} pokemon={poke}></Card>)
     })
        return(
         <div>
