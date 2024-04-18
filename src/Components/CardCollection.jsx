@@ -9,39 +9,27 @@ import Card from "./Card"
       console.log(`returns ${num} pokemons`)
     }
 
-    useEffect(()=>{
-      const fetchArr = [
+    useEffect(() =>{
+     
+      const arr = [
         fetch("https://pokeapi.co/api/v2/pokemon/1"),
         fetch("https://pokeapi.co/api/v2/pokemon/2"),
         fetch("https://pokeapi.co/api/v2/pokemon/3"),
-        fetch("https://pokeapi.co/api/v2/pokemon/4"),
-        fetch("https://pokeapi.co/api/v2/pokemon/5"),
-        fetch("https://pokeapi.co/api/v2/pokemon/6"),
-        fetch("https://pokeapi.co/api/v2/pokemon/7"),
-        fetch("https://pokeapi.co/api/v2/pokemon/8")
+        fetch("https://pokeapi.co/api/v2/pokemon/4")
       ]
-  
-      Promise.all(fetchArr)
-      .then(data => data.json())
-      .then(data => console.log(data))
-      
-    },[])
 
-    // useEffect(() => {
-    //     const getPokemons = async () => {
+      Promise.all(arr)
+        .then((res) => console.log(res))
+
+    },[setPokemons])
+
     //       console.log("fetching pokemons")
     //       const randomNum =  await getRandomNum()
     //       const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
     //       const data = await  result.json()
     //       setPokemons(data)
     //       setLoading(false)
-    //       console.log(data)
-    //       console.log("game start, pokemons fetched")
-    //     }
-    //     getPokemons()
-    //     getPokemonPool(8)
 
-    //   },[setPokemons])
 
        return(
         <div>
