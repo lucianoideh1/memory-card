@@ -19,9 +19,14 @@ import Card from "./Card"
       ]
 
       Promise.all(arr)
-        .then((res) => console.log(res))
+        .then((res) => {
+          Promise.all(res.map((item) =>{
+           return item.json()
+          }))
+          .then(data => console.log(data))
+        })
 
-    },[setPokemons])
+    },[])
 
     //       console.log("fetching pokemons")
     //       const randomNum =  await getRandomNum()
