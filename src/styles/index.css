@@ -63,7 +63,7 @@
   margin: .3rem;
   background-color: rgb(58, 58, 58);
 }
-.card-colection{
+.card-collection{
   display: grid;
   grid-template-columns: repeat(4,1fr);
   gap: 1rem;
@@ -87,7 +87,7 @@
   background-color: rgb(225, 225, 225);
 }
 
-.card-colection{
+.card-collection{
   margin-bottom: 1rem;
 }
 .scoreboard{
