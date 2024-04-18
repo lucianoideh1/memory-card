@@ -12,10 +12,14 @@ import Card from "./Card"
     useEffect(() =>{
      
       const arr = [
-        fetch("https://pokeapi.co/api/v2/pokemon/1"),
-        fetch("https://pokeapi.co/api/v2/pokemon/2"),
-        fetch("https://pokeapi.co/api/v2/pokemon/3"),
-        fetch("https://pokeapi.co/api/v2/pokemon/4")
+        fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
+        fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
+        fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
+        fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
+        fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
+        fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
+        fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
+        fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
       ]
 
       Promise.all(arr)
