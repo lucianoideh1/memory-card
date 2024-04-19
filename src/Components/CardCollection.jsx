@@ -32,6 +32,16 @@ import Card from "./Card"
 
     },[setPokemons])
 
+    useEffect(()=>{
+     function checkVictory(){
+      const { current } = score
+        if(current >= 8){
+          setPage("Victory")
+        }
+      }
+      checkVictory()
+    },[score, setPage])
+
     function handleCardClick(e){
       const alt = e.target.attributes.alt.value
       console.log(alt)
