@@ -1,9 +1,10 @@
 import {useState, useEffect} from 'react'
 import Card from "./Card"
 
-  const CardCollection = ({onClick, pokemons, setPokemons,score,setScore} ) => {
+  const CardCollection = ({ pokemons, setPokemons,score,setScore,setPage} ) => {
   
     const [loading, setLoading] = useState(true)
+    const [clickedPoke,setClickedPoke] = useState([])
 
     useEffect(() =>{
       async function getPokemonPool(){
@@ -30,11 +31,21 @@ import Card from "./Card"
       getPokemonPool()
 
     },[setPokemons])
-    function handleCardClick(){
-      console.log("clicked a card")
-      setScore({...score,current:score.current + 1})
-      // changing order in collection
-      shuffleArray(pokemons)
+
+    function handleCardClick(e){
+      const alt = e.target.attributes.alt
+      console.log(alt)
+      if(clickedPoke.includes(alt) === true){
+        setPage("Defeat")
+      }
+      else if(clickedPoke.includes(alt) ===  false){
+        console.log("clicked a card")
+        setClickedPoke((prev) => {
+          return [...prev,alt]
+        })
+        setScore({...score,current:score.current + 1})
+        shuffleArray(pokemons)
+      }
      }
 
 // functions
