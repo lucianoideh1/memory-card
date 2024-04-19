@@ -33,7 +33,7 @@ import Card from "./Card"
     },[setPokemons])
 
     function handleCardClick(e){
-      const alt = e.target.attributes.alt
+      const alt = e.target.attributes.alt.value
       console.log(alt)
       if(clickedPoke.includes(alt) === true){
         setPage("Defeat")
@@ -43,6 +43,7 @@ import Card from "./Card"
         setClickedPoke((prev) => {
           return [...prev,alt]
         })
+        console.log(clickedPoke)
         setScore({...score,current:score.current + 1})
         shuffleArray(pokemons)
       }
