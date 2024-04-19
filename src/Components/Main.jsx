@@ -3,6 +3,8 @@ import "../styles/main.css"
 import Welcome from "./Welcome"
 import CardCollection from "./CardCollection"
 import Scoreboard from './Scoreboard'
+import Defeat from "./Defeat"
+import Victory from "./Victory"
 
 const Main = () => {
   // game settings or properties
@@ -44,6 +46,20 @@ const [pokemons,setPokemons] = useState([])
                        setPokemons={setPokemons} 
                        setPage={setPage}></CardCollection> 
       <Scoreboard score={score} ></Scoreboard>
+    </main>
+  )
+ }
+ else if(page === "Defeat"){
+  return(
+    <main>
+      <Defeat></Defeat>
+    </main>
+  )
+ }
+ else if(page === "Victory"){
+  return(
+    <main>
+      <Victory></Victory>
     </main>
   )
  }
