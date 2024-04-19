@@ -1,11 +1,12 @@
 import {useState, useEffect} from 'react'
 import Card from "./Card"
+import Dialog from './Dialog'
 
   const CardCollection = ({ pokemons, setPokemons,score,setScore,setPage} ) => {
   
     const [loading, setLoading] = useState(true)
     const [clickedPoke,setClickedPoke] = useState([])
-
+    const [gameResult,setGameResult] = useState("Playing")
     useEffect(() =>{
       async function getPokemonPool(){
         const arr = [
@@ -36,17 +37,37 @@ import Card from "./Card"
      function checkVictory(){
       const { current } = score
         if(current >= 8){
-          setPage("Victory")
+          // setPage("Victory")
+          setGameResult("Victory")
+          console.log("you won")
+
         }
       }
       checkVictory()
     },[score, setPage])
 
+    useEffect(()=>{
+      const modalWin = document.querySelector("#modal-win")
+      const modalLose = document.querySelector("#modal-lose")
+      const checkGameResult = () =>{
+        if(gameResult === "Victory"){
+          modalWin.showModal()
+        }
+        else if(gameResult === "Defeat"){
+          modalLose.showModal()
+        }
+      }
+      checkGameResult()
+    },[gameResult])
+
     function handleCardClick(e){
       const alt = e.target.attributes.alt.value
       console.log(alt)
       if(clickedPoke.includes(alt) === true){
-        setPage("Defeat")
+        // setPage("Defeat")
+        setGameResult("Defeat")
+        console.log("you lost")
+        
       }
       else if(clickedPoke.includes(alt) ===  false){
         console.log("clicked a card")
@@ -77,6 +98,28 @@ function shuffleArray(array) {
           <div>Card collection is loading</div> 
           :   
          <div className='card-collection'>
+          <dialog  className='modal modal-win' id='modal-win'>
+            <h1>You won</h1>
+            <button onClick={()=> {
+              setClickedPoke([])
+              setGameResult("Playing")
+              setLoading(true)
+              setScore({current:0,best:0})
+              setPage("Welcome")
+              }}>Restart</button>
+          </dialog>
+          
+          <dialog  className='modal modal-lose' id='modal-lose'>
+            <h1>You lost</h1>
+            <button onClick={()=> {
+              setClickedPoke([])
+              setGameResult("Playing")
+              setLoading(true)
+              setScore({current:0,best:0})
+              setPage("Welcome")
+              }}>Restart</button>
+
+          </dialog>
           {pokemonJSX}
          </div>
           }
