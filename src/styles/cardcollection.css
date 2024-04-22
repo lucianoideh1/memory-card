@@ -1,0 +1,23 @@
+.modal{
+    background-color: grey;
+    min-width: 300px;
+    color: white;
+    border: none;
+}
+.modal button{
+    background-color: hsl(0, 0%, 15%);
+    border: none;
+    color: white;
+    padding: .3rem 1.2rem;
+    font-size: inherit;
+    letter-spacing: .1rem;
+    font-weight: 500;
+}
+.modal button:hover{
+    color:yellow;
+    background-color: hsl(0, 0%, 30%);
+
+}
+.modal::backdrop{
+    background-color: hsla(0, 0%, 0%, 0.603);
+}

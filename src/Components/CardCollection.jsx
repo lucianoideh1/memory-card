@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
+import "../styles/cardcollection.css"
 import Card from "./Card"
-import Dialog from './Dialog'
 
   const CardCollection = ({ pokemons, setPokemons,score,setScore,setPage} ) => {
   
