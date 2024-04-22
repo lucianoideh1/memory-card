@@ -3,6 +3,7 @@
     min-width: 300px;
     color: white;
     border: none;
+    outline: 2px solid yellow;
 }
 .modal button{
     background-color: hsl(0, 0%, 15%);

@@ -10,14 +10,15 @@ import Card from "./Card"
     useEffect(() =>{
       async function getPokemonPool(){
         const arr = [
-          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
-          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
-          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
-          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
-          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
-          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
-          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
-          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*700)}`),
+          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*699)+1}`),
+          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*699)+1}`),
+          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*699)+1}`),
+          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*699)+1}`),
+          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*699)+1}`),
+          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*699)+1}`),
+          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*699)+1}`),
+          fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*699)+1}`),
+         
         ]
         Promise.all(arr)
         .then(res => {
@@ -30,7 +31,9 @@ import Card from "./Card"
       }
 
       getPokemonPool()
+      const cleanPokemon = () => setPokemons([])
 
+      return cleanPokemon
     },[setPokemons])
 
     useEffect(()=>{
@@ -74,7 +77,7 @@ import Card from "./Card"
         setClickedPoke((prev) => {
           return [...prev,alt]
         })
-        console.log(clickedPoke)
+        console.log(`clicked pokemons: ${clickedPoke}`)
         setScore({...score,current:score.current + 1})
         shuffleArray(pokemons)
       }
@@ -90,6 +93,7 @@ function shuffleArray(array) {
 
 
     const pokemonJSX =  pokemons.map( poke => {
+      console.log(poke.name)
       return(<Card  key={poke.name} onClick={handleCardClick} pokemon={poke}></Card>)
     })
        return(
@@ -102,6 +106,7 @@ function shuffleArray(array) {
             <h1>You won</h1>
             <button onClick={()=> {
               setClickedPoke([])
+              setPokemons([])
               setGameResult("Playing")
               setLoading(true)
               setScore({current:0,best:0})
@@ -113,6 +118,7 @@ function shuffleArray(array) {
             <h1>You lost</h1>
             <button onClick={()=> {
               setClickedPoke([])
+              setPokemons([])
               setGameResult("Playing")
               setLoading(true)
               setScore({current:0,best:0})
