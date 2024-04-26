@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 import capitalize from "../utils/capitalize"
 
-const Card = (props) => {
-  const {onClick, pokemon} = props
+const Card = ({onClick, pokemon}) => {
   
     return (
       <div className="card" onClick={onClick}> 
@@ -12,4 +12,11 @@ const Card = (props) => {
  }
 
 
+ Card.propTypes = {
+   onClick: PropTypes.func,
+   pokemon: PropTypes.object,
+   name: PropTypes.string,
+   front_default: PropTypes.string,
+ }
+ 
 export default Card

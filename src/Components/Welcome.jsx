@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 const Welcome = ({onClick}) => {
   return (
     <div>
@@ -11,4 +12,7 @@ const Welcome = ({onClick}) => {
   )
 }
 
+Welcome.propTypes = {
+  onClick: PropTypes.func,
+}
 export default Welcome

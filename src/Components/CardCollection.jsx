@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {useState, useEffect} from 'react'
 import "../styles/cardcollection.css"
 import Card from "./Card"
@@ -131,7 +132,13 @@ function shuffleArray(array) {
           }
         </div>
        )
-
+  }
+  CardCollection.propTypes = {
+    pokemons: PropTypes.object,
+    setPokemons: PropTypes.func,
+    score: PropTypes.object,
+    setScore: PropTypes.func,
+    setPage: PropTypes.func,
   }
   export default CardCollection
 

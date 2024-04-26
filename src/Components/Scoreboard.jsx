@@ -1,4 +1,4 @@
-// import { useEffect} from 'react'
+import PropTypes from 'prop-types'
 const Scoreboard = ({score}) => {
   return (
     <div className="scoreboard" >
@@ -7,4 +7,7 @@ const Scoreboard = ({score}) => {
   )
 }
 
+Scoreboard.propTypes = {
+  score: PropTypes.object,
+}
 export default Scoreboard
